@@ -2,10 +2,10 @@ public class Main{ // Memoization method
     public int helper(int ind, int[] arr), int[] dp){
         if (ind == 0) return 0;
         if (dp[ind] != -1) return dp[ind];
-        int min1 = helper(ind-1, arr, dp) + Math.abs(arr[ind-1] + arr[ind]);
+        int min1 = helper(ind-1, arr, dp) + Math.abs(arr[ind-1] - arr[ind]);
         int min2 = Integer.MAX_VALUE;
         if(ind > 1){
-            min2 = helper(ind-2, arr, dp) + Math.abs(arr[ind-2] + arr[ind]);
+            min2 = helper(ind-2, arr, dp) + Math.abs(arr[ind-2] - arr[ind]);
         }
         dp[ind] = Math.min(min1, min2);
         return dp[ind];
